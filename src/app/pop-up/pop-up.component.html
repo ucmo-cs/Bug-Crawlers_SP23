@@ -1,0 +1,38 @@
+<div class="content"  class="mat-elevation-z8" role="main" >
+<h2>Add Report</h2>
+
+
+
+  <form class="example-form" >
+    <mat-form-field class="example-full-width">
+      <mat-label>Employee Name</mat-label>
+      <input matInput placeholder="John Doe" value="John Doe" [disabled]="true">
+    </mat-form-field>
+  </form>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Choose a date</mat-label>
+    <input matInput [matDatepicker]="picker">
+    <mat-hint>MM/DD/YYYY</mat-hint>
+    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+
+  <form class="example-form">
+  
+    <mat-form-field class="example-full-width">
+      <mat-label>Report Text Goes Here</mat-label>
+      <textarea matInput placeholder=""></textarea>
+    </mat-form-field>
+
+  </form>
+  <h2>Select Project</h2>
+  <section>
+    <mat-checkbox class="example-margin">FLP</mat-checkbox>
+    <mat-checkbox class="example-margin">FEMA</mat-checkbox>
+  </section>
+  <button>Cancel</button>
+<button>Save</button>
+  
+</div>
+
