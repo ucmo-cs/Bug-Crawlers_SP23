@@ -1,0 +1,48 @@
+service: serverless
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: us-east-2
+  # iamRoleStatements:
+  # - Effect: Allow
+  #   Action:
+  #    - dynamodb:*
+  #   Resource:
+  #    - arn:aws:dynamodb:us-east-2:294638950776:table/StatusUpdates
+
+functions:
+  getTable:
+    handler: src/getTable.handler
+    events:
+     - http:
+        path: /getTable
+        method: GET
+  getTableItem:
+    handler: src/getTableItem.handler
+    events:
+     - http:
+        path: /getTableItem/{StatusID}
+        method: GET
+  insertItem:
+    handler: src/insertItem.handler
+    events:
+     - http:
+        path: /insertItem/{StatusID}
+        method: POST
+  
+# resources:
+#   Resources:
+#     StatusUpdates:
+#       Type: AWS::DynamoDB::Table
+#       Properties:
+#         TableName: StatusUpdates
+#         BillingMode: PAY_PER_REQUEST
+#         AttributeDefinitions:
+#         - AttributeName: StatusID
+#           AttributeType: S
+#         KeySchema:
+#         - AttributeName: StatusID
+#           KeyType: HASH

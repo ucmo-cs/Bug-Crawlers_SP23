@@ -1,0 +1,21 @@
+table {
+    width: 100%;
+  }
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+  .example-form-fields {
+    display: flex;
+    align-items: flex-start;
+  }
+
+  .mat-orange {
+    background-color: orange;
+    color: orange;
+}
