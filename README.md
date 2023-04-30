@@ -16,4 +16,8 @@ To deploy the serverless files:
 - Configure your AWS account (with Lambda and Dynamo permissions) to connect to the project.
 - Change to the serverless directory.
 - Run "serverless deploy".
+
+To run the project:
+- npm install
+- ng serve
  
