@@ -2,16 +2,25 @@ service: serverless
 frameworkVersion: '3'
 
 provider:
+  httpApi:
+    cors: true
   name: aws
   runtime: nodejs12.x
   stage: dev
   region: us-east-2
-  # iamRoleStatements:
-  # - Effect: Allow
-  #   Action:
-  #    - dynamodb:*
-  #   Resource:
-  #    - arn:aws:dynamodb:us-east-2:294638950776:table/StatusUpdates
+  iam:
+    role:
+      statements:
+      - Effect: Allow
+        Action:
+        - lambda:*
+        Resource:
+        - '*'
+      - Effect: Allow
+        Action:
+        - dynamodb:*
+        Resource:
+        - arn:aws:dynamodb:us-east-2:294638950776:table/StatusUpdates
 
 functions:
   getTable:

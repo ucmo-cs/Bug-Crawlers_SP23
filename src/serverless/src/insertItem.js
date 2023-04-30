@@ -7,7 +7,7 @@ const documentClient = new AWS.DynamoDB.DocumentClient({apiVersion:'2012-08-10'}
 exports.handler = async event => {
 
   const { StatusID } = event.pathParameters;
-  const { Username, FEMA, FLP, Description, DateTime } = event.queryStringParameters;
+  const { Username, Projects, Description, DateTime } = event.queryStringParameters;
   // const DateTime = String(new Date().toISOString().slice(0,10));
   const Submitted = true;
 
@@ -20,8 +20,7 @@ exports.handler = async event => {
         'StatusID': Number(StatusID),
         'Date': DateTime,
         'Description': Description,
-        'FEMA': FEMA,
-        'FLP': FLP,
+        'Projects': Number(Projects),
         'Submitted': Submitted,
         'Username': Username
       }
@@ -36,15 +35,7 @@ exports.handler = async event => {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*'
       },
-      body: "Item has successfully been added/updated",
-      // TableName: "StatusUpdates",
-      // StatusID: Number(StatusID),
-      // Username: Username,
-      // DateTime: DateTime,
-      // Description: Description,
-      // FEMA: FEMA,
-      // FLP: FLP,
-      // Submitted: Submitted
+      body: "Item has successfully been added/updated"
     };
   }
   catch(exception) {
